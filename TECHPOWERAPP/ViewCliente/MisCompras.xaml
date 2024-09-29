@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TECHPOWERAPP.ViewCliente.MisCompras"
+              BackgroundColor="White"
+              NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+
+        <StackLayout >
+
+            <StackLayout Orientation="Horizontal">
+
+
+                <Image Source="inicio.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Start"/>
+
+                <Button x:Name="volver" ImageSource="arrow.png" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" HeightRequest="50" WidthRequest="50" Clicked="volver_Clicked"/>
+
+
+            </StackLayout>
+
+
+            <Picker x:Name="ProductosPicker" Title="Selecciona un producto" TextColor="Black"  SelectedIndexChanged="ProductosPicker_SelectedIndexChanged" ItemDisplayBinding="{Binding Nombre}" Background="#e1bee7" TitleColor="Black" FontFamily="Basote" FontSize="15" WidthRequest="400" >
+            <Picker.ItemsSource>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Image Source="{Binding Imagen}" WidthRequest="20" HeightRequest="20"/>
+                            <Label Text="{Binding Nombre}" VerticalOptions="Center" TextColor="Black"/>
+                            <Label Text="{Binding Precio, StringFormat='Precio: {0:C}'}" VerticalOptions="Center" TextColor="Black"/>
+                    </StackLayout>
+                </DataTemplate>
+            </Picker.ItemsSource>
+        </Picker>
+
+    <!--<Label Text="Producto Seleccionado:" FontAttributes="Bold"/>
+        <Entry x:Name="ProductoSeleccionadoEntry" IsReadOnly="True"/>
+        <Label Text="Precio:" FontAttributes="Bold"/>
+        <Entry x:Name="PrecioSeleccionadoEntry" IsReadOnly="True"/>
+        <Label Text="Total de la Compra:" FontAttributes="Bold"/>
+        <Entry x:Name="TotalCompraEntry" IsReadOnly="True"/>-->
+
+            <Label Text="Productos Seleccionados:" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontFamily="Basote" FontSize="15"  TranslationY="10"/>
+        <ListView x:Name="ProductosSeleccionadosListView" SelectionMode="Single" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="400">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10" Spacing="20" HorizontalOptions="Center">
+                                <Label Text="{Binding Nombre}" VerticalOptions="Center" TextColor="Black" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Precio, StringFormat='Precio: {0:C}'}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                                <Label Text="{Binding Cantidad, StringFormat='Cantidad: {0}'}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+                            </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+            <Button x:Name="eliminar" Text="Eliminar Producto Seleccionado"  FontFamily="Basote" FontSize="15"
+                    WidthRequest="400" BackgroundColor="#e1bee7" Clicked="eliminar_Clicked"/>
+
+            <Label Text="Total de la Compra:" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" FontFamily="Basote" FontSize="15" TranslationY="10"/>
+            <Entry x:Name="TotalCompraEntry" IsReadOnly="True" TextColor="Black" WidthRequest="170"/>
+        
+        
+
+            <!-- Sección de Datos del Cliente -->
+            <Label Text="Datos del Cliente" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" FontFamily="Basote" FontSize="20"/>
+            <Entry x:Name="NombreCompletoEntry" Placeholder="Nombre Completo" TextColor="Black"/>
+            <Entry x:Name="TelefonoEntry" Placeholder="Número de Teléfono" Keyboard="Telephone" TextColor="Black"/>
+            <Entry x:Name="DireccionEntry" Placeholder="Dirección" TextColor="Black"/>
+
+
+            <!-- Opciones de Pago -->
+            <Label Text="Método de Pago" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
+            <Picker x:Name="MetodoPagoPicker" Title="Selecciona un método de pago" BackgroundColor="Gainsboro" TitleColor="Black">
+                <Picker.Items>
+                    <x:String>Efectivo</x:String>
+                    <x:String>Tarjeta</x:String>
+                </Picker.Items>
+            </Picker>
+            <Entry x:Name="NumeroTarjetaEntry" Placeholder="Número de Tarjeta" IsVisible="False" Keyboard="Numeric"/>
+
+
+
+
+            <!-- Opciones de Entrega -->
+            <Label Text="Método de Entrega" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
+            <Picker x:Name="MetodoEntregaPicker" Title="Selecciona un método de entrega" BackgroundColor="Gainsboro"  TitleColor="Black">
+                <Picker.Items>
+                    <x:String>A Domicilio</x:String>
+                    <x:String>Retirar en Tienda</x:String>
+                </Picker.Items>
+            </Picker>
+        
+        
+
+            <!-- Botón para Guardar Compra -->
+            <Button x:Name="guardarCompra" Text="Guardar Compra" Clicked="guardarCompra_Clicked" FontFamily="Basote" BackgroundColor="#e1bee7"/>
+
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

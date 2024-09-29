@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TECHPOWERAPP.ViewCliente.ClientePage"
+              BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <!-- Definición de las columnas: la primera es para el menú lateral y la segunda para el contenido -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <!-- Ancho del menú lateral (autoajustable) -->
+            <ColumnDefinition Width="*"/>
+            <!-- Ancho del contenido principal -->
+
+            <ColumnDefinition Width="Auto"/>
+            <!-- Ancho del menú lateral (autoajustable) -->
+            <ColumnDefinition Width="*"/>
+            <!-- Ancho del contenido principal -->
+
+            <ColumnDefinition Width="Auto"/>
+            <!-- Ancho del menú lateral (autoajustable) -->
+            <ColumnDefinition Width="*"/>
+            <!-- Ancho del contenido principal -->
+
+        </Grid.ColumnDefinitions>
+
+        <!-- Botón pequeño para abrir el menú lateral -->
+        <Button x:Name="MenuButton"
+         Text="☰"
+         TextColor="Black"
+         FontSize="Large"
+         WidthRequest="50"
+         HeightRequest="55"
+         HorizontalOptions="Start"
+         VerticalOptions="Start"
+         Clicked="MenuButton_Clicked"
+         BackgroundColor="Transparent"/>
+
+        <!-- Menú lateral (desplegable) con ScrollView -->
+        <!--<ScrollView>-->
+
+        <!-- Menú lateral (desplegable) -->
+        <StackLayout x:Name="MenuPanel1"
+              BackgroundColor="Black"
+              Padding="10"
+              IsVisible="False" 
+              WidthRequest="198"
+              Grid.Column="0"
+              VerticalOptions="FillAndExpand">
+
+            <Label Text="Panel de opciones" FontFamily="School" FontSize="40" TextColor="White" HorizontalOptions="Center" />
+            <Label/>
+
+            <!-- Botones del menú -->
+
+            <Button x:Name="Categorias"
+              Text="Categorías" 
+              TextColor="Gainsboro"
+                 ImageSource="options.png"
+                 ContentLayout="left, 20"
+             Clicked="Categorias_Clicked" 
+             CommandParameter="ListaCategorias" 
+             BackgroundColor="Transparent"
+             BorderWidth="2"
+             BorderColor="Black"
+             FontFamily="Family Vacation"
+             FontSize="28"/>
+
+            <Label/>
+
+            <Button x:Name="Perfil"
+            Text="Mi Perfil"
+            TextColor="Gainsboro"
+            ImageSource="user.png"
+            ContentLayout="left, 20"
+            Clicked="Perfil_Clicked" 
+            CommandParameter="MiPerfil"
+            BackgroundColor="Transparent"
+            BorderWidth="2"
+            BorderColor="Black"
+            FontFamily="Family Vacation"
+            FontSize="28"
+            />
+            <Label/>
+
+            <Button x:Name="Compras"
+              Text="Mis Compras"
+              TextColor="Gainsboro"
+                   ImageSource="shop.png"
+                  ContentLayout="left, 20"
+             Clicked="Compras_Clicked" 
+             CommandParameter="MisCompras"
+               BackgroundColor="Transparent"
+               BorderWidth="2"
+               BorderColor="Black"
+               FontFamily="Family Vacation"
+               FontSize="28"
+               />
+            <Label/>
+            
+            
+            <Button x:Name="contactos"
+              Text="Contáctenos"
+                      TextColor="Gainsboro"
+                   ImageSource="telephone.png"
+                 ContentLayout="left, 10"
+             Clicked="contactos_Clicked" 
+             CommandParameter="Contactanos"
+               BackgroundColor="Transparent"
+               BorderWidth="2"
+               BorderColor="Black"
+               FontFamily="Family Vacation"
+               FontSize="28"/>
+            <Label/>
+           
+            <Button x:Name="cierre"
+              Text="Cierre de Sesión " 
+                    TextColor="Gainsboro"
+                   ImageSource="shutdown.png"
+                   ContentLayout="left, 20"
+             Clicked="cierre_Clicked" 
+             CommandParameter="LoginPage"
+               BackgroundColor="Transparent"
+               BorderWidth="2"
+               BorderColor="Black"
+               FontFamily="Family Vacation"
+               FontSize="28"/>
+        </StackLayout>
+        <!--</ScrollView>-->
+
+
+            
+             <!-- Contenido principal -->
+        <!--<ContentView x:Name="ContentFrame" Grid.Column="1" />-->
+        <Label 
+            Padding="90"
+             Text="Bienvenido"
+               TextColor="Black"
+            FontFamily="Background"
+            FontSize="40"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Grid.Column="2"/>
+
+        <Label/>
+
+        <Label 
+    Padding="150"
+     Text="a Techpower"
+       TextColor="Black"
+    FontFamily="Background"
+    FontSize="40"
+    VerticalOptions="FillAndExpand"
+    HorizontalOptions="FillAndExpand"
+    Grid.Column="2"
+     TranslationX="-25"/>
+
+
+        <Image  
+            Source="inicio.png"
+       WidthRequest="200"
+       HeightRequest="300"
+       Grid.Column="2"
+       VerticalOptions="CenterAndExpand"
+       HorizontalOptions="CenterAndExpand"
+       TranslationX="-35"/>
+
+       
+
+
+    </Grid>
+
+
+</ContentPage>
